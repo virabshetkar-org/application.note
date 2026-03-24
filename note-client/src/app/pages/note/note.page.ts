@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ConfigurationService } from '../../shared/services/configuration.service';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-note',
-  imports: [],
+  imports: [JsonPipe, AsyncPipe],
   templateUrl: './note.page.html',
   styleUrl: './note.page.css',
 })
-export class NotePage implements OnInit {
-  constructor() {
-    console.log("HERE!");
-  }
-  
-  ngOnInit() {
-    console.log("HERE!");
-  }
+export class NotePage {
+  readonly config = inject(ConfigurationService);
+
+  readonly config$ = this.config.getConfig();
 }
-``

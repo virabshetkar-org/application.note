@@ -1,10 +1,19 @@
 {
-	"folders": [
-		{
-			"path": "note-client"
-		},
-		{
-			"path": "server"
-		}
-	]
+  "folders": [
+    {
+      "path": "note-client",
+    },
+    {
+      "path": "server",
+    },
+  ],
+  "launch": {
+    "version": "0.2.0",
+    "compounds": [
+      {
+        "name": "Run both",
+        "configurations": ["Attach to Container", "ng serve"],
+      },
+    ],
+  },
 }
