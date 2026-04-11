@@ -12,4 +12,8 @@ export class NotePage {
   readonly config = inject(ConfigurationService);
 
   readonly config$ = this.config.getConfig();
+
+  ngOnInit() {
+    console.log("HERE!");
+  }
 }
