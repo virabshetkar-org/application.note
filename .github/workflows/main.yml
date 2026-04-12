@@ -1,0 +1,16 @@
+name: Server CI
+run-name: ${{github.sha}} - Server
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: [self-hosted, build]
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v6
+        with:
+          path: application
+      - name: Docker build & push
+        run: docker buildx build --builder build-cluster --platform linux/amd64,linux/arm64 -t virabshetkar/note-service:${{github.sha}} --push .
+        working-directory: application/server
