@@ -7,7 +7,11 @@ import { inject, Injectable } from '@angular/core';
 export class ConfigurationService {
   readonly #http = inject(HttpClient);
 
-  getConfig() {
+  getFrontendManifest() {
     return this.#http.get('/config/frontend/federation.manifest.json');
+  }
+
+  getBackendConfig() {
+    return this.#http.get('/api/note/configuration');
   }
 }

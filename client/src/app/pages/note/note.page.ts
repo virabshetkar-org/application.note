@@ -11,7 +11,8 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 export class NotePage {
   readonly config = inject(ConfigurationService);
 
-  readonly config$ = this.config.getConfig();
+  readonly frontendConfig$ = this.config.getFrontendManifest();
+  readonly backendConfig$ = this.config.getBackendConfig();
 
   ngOnInit() {
     console.log("HERE!");
