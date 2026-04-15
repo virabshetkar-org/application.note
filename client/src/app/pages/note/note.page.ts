@@ -13,8 +13,4 @@ export class NotePage {
 
   readonly frontendConfig$ = this.config.getFrontendManifest();
   readonly backendConfig$ = this.config.getBackendConfig();
-
-  ngOnInit() {
-    console.log("HERE!");
-  }
 }
